@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
+  height: 100vh;
   background-color: #143b91;
 }
 
@@ -19,7 +20,48 @@
   font-size: large;
 }
 
+
+/* vertical align */
+#header{
+  height: 60px;
+  width: 100%;
+  background-color: #0a296d;
+}
+
+#header-narrow{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.menu-icon{
+  cursor: pointer;
+}
+
+#menu-bg{
+  color: white;
+  background-color: #595959;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+#main-game{
+  text-align: center;
+}
+
+.difficulty-box{
+  font-size: 10px;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  background-color: white;
+  color: black;
+  margin: 0px 20px;
+  cursor: pointer;
+}
+
+#difficulties{
+
 }
