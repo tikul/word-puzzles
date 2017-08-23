@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button} from 'semantic-ui-react';
+import {Container, Form, Button} from 'semantic-ui-react';
 
 class Answer extends Component{
   constructor(){
@@ -24,13 +24,13 @@ class Answer extends Component{
 
   render(){
     return (
-      <form onSubmit={(e)=>this.handleSubmit(e)}>
-        <label>
-          Answer:
-          <input type="text" value={this.state.value} onChange={(e)=>this.handleChange(e)}/>
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <Container className="answer-container">
+        <Form onSubmit={(e)=>this.handleSubmit(e)}>
+          <Form.Input placeholder="Answer..." name="answer"
+          value={this.state.value} onChange={(e)=>this.handleChange(e)} />
+          <Form.Button content="Submit" />
+        </Form>
+      </Container>
     );
   }
 }

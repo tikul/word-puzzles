@@ -22,4 +22,5 @@ module.exports = {
         desc : "Placeholder description"
       }
   },
+  TileColors : ["tile-red", "tile-blue-green", "tile-blue", "tile-purple", "tile-pink", "tile-orange", "tile-green"],
 };

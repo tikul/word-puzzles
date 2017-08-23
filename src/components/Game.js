@@ -9,6 +9,7 @@ import {Button, Header} from 'semantic-ui-react';
 
 const AnagramDifficulties = Constants.AnagramDifficulties;
 const GameModeDescriptions = Constants.GameModeDescriptions;
+const TileColors = Constants.TileColors;
 
 class Game extends Component{
   constructor(){
@@ -46,11 +47,12 @@ class Game extends Component{
   renderPhrase(){
     if(this.props.currentGameType==="anagram"){
       if(this.state.cipheredPhrase !== null){
+        const len = TileColors.length;
         let letterTiles = [];
         for(let i = 0; i < this.state.phrase.length; i++){
           letterTiles.push(
           <Draggable bounds="parent">
-            <div className="letter">{this.state.cipheredPhrase[i]}</div>
+            <div className={"letter " + TileColors[i%len]} >{this.state.cipheredPhrase[i]}</div>
           </Draggable>);
         }
         return letterTiles;

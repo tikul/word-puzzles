@@ -21,19 +21,16 @@
   font-size: large;
 }
 
-
-/* vertical align */
 #header{
   height: 60px;
   width: 100%;
-  /*background-color: #0a296d;*/
   background-color: #2750aa;
   color: white;
   text-align: center;
 }
 
-#header-narrow{
-  width: 90%;
+.narrow{
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -66,7 +63,6 @@
   margin: 0px 20px;
   cursor: pointer;
   line-height: 1em;
-  /*border: 1px solid black;*/
   border-radius: 10px;
 }
 
@@ -79,13 +75,14 @@
 }
 
 .letter{
-  border: 2px solid black;
-  background-color: white;
-  height: 30px;
-  width: 30px;
-  font-size: 25px;
+  color: black; /*Fix color: white */
+  height: 45px;
+  width: 45px;
+  font-size: 30px;
+  padding-top: 10px;
   display: inline-block;
   cursor: move;
+  border-radius: 4px;
 }
 
 #difficulties{
@@ -93,10 +90,46 @@
 }
 
 #phrase-box{
-  width: 50%;
-  height: 170px;
+  width: 60%;
+  height: 220px;
   margin: 0 auto;
   border: 1px solid black;
   padding: 5px;
   position: relative;
+}
+
+.tile-red{
+  background-color: #ff5151;
+}
+
+.tile-blue-green{
+  background-color: #51ffa5;
+}
+
+.tile-blue{
+  background-color: #51adff;
+}
+
+.tile-purple{
+  background-color: #a430f2;
+}
+
+.tile-pink{
+  background-color: #f12f97;
+}
+
+.tile-orange{
+  background-color: #f49024;
+}
+
+.tile-green{
+  background-color: #6fe544;
+}
+
+.answer-container{
+  padding: 10px;
+}
+
+.answer-input{
+  margin: 0 auto;
 }
