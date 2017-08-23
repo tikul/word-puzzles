@@ -5,6 +5,7 @@ import Words from '../constants/words.min';
 import Draggable from 'react-draggable';
 import Permutation from '../libs/shuffle';
 import Answer from './Answer';
+import {Button, Header} from 'semantic-ui-react';
 
 const AnagramDifficulties = Constants.AnagramDifficulties;
 const GameModeDescriptions = Constants.GameModeDescriptions;
@@ -29,7 +30,7 @@ class Game extends Component{
         isHighlighted={value.group===this.state.difficulty}
         onClick={()=>this.changeDifficulty(value.group)} />
       );
-      diffList.push(<button onClick={()=>this.changePhrase()}>New Word?</button>);
+      diffList.push(<Button color="blue" onClick={()=>this.changePhrase()}>New Word?</Button>);
       return diffList;
     }
   }
@@ -96,8 +97,8 @@ class Game extends Component{
     
     return (
       <div id="main-game">
-        <h1>{title}</h1>
-        <h3>{desc}</h3>
+        <Header as="h1">{title}</Header>
+        <Header as="h4">{desc}</Header>
         <div id="difficulties">
           {this.promptDifficulty()}
         </div>

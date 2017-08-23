@@ -1,7 +1,8 @@
 .App {
   /*text-align: center;*/
   height: 100vh;
-  background-color: #143b91;
+  /*background-color: #143b91; */
+  background-color: white;
 }
 
 .App-logo {
@@ -25,7 +26,10 @@
 #header{
   height: 60px;
   width: 100%;
-  background-color: #0a296d;
+  /*background-color: #0a296d;*/
+  background-color: #2750aa;
+  color: white;
+  text-align: center;
 }
 
 #header-narrow{
@@ -35,6 +39,7 @@
 
 .menu-icon{
   cursor: pointer;
+  float: left;
 }
 
 #menu-bg{
@@ -55,15 +60,18 @@
   font-size: 10px;
   height: 60px;
   width: 60px;
+  padding: 10px 0px;
   display: inline-block;
-  background-color: white;
   color: black;
   margin: 0px 20px;
   cursor: pointer;
+  line-height: 1em;
+  /*border: 1px solid black;*/
+  border-radius: 10px;
 }
 
 .highlighted{
-  background-color: grey;
+  background-color: #efefef;
 }
 
 .regular{
@@ -81,14 +89,14 @@
 }
 
 #difficulties{
-  
+  margin: 10px;
 }
 
 #phrase-box{
   width: 50%;
   height: 170px;
   margin: 0 auto;
-  border: 5px solid black;
+  border: 1px solid black;
   padding: 5px;
   position: relative;
 }

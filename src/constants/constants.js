@@ -14,7 +14,7 @@ module.exports = {
     "anagram":
       {
         title : "Anagram Game",
-        desc : "Placeholder description"
+        desc : "Rearrange the letters to form dictionary words."
       },
     "cipher": 
       {

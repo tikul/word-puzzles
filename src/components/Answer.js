@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Button} from 'semantic-ui-react';
 
 class Answer extends Component{
   constructor(){

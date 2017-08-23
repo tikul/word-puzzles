@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Game from './components/Game';
-import Header from './components/Header';
-import Menu from './components/Menu';
+import NavTop from './components/NavTop';
 import DiffBox from './components/DiffBox';
 import Constants from './constants/constants';
 
@@ -12,7 +11,6 @@ class App extends Component{
     super();
     this.state = {
       currentGameType: "anagram",
-      menuIsShowing: false,
     };
   }
 
@@ -24,15 +22,10 @@ class App extends Component{
     }
   }
 
-  handleMenuToggle(){
-    this.setState({menuIsShowing: !this.state.menuIsShowing});
-  }
-
   render(){
     return (
       <div className="App">
-        <Header onClick={() => this.handleMenuToggle()} />
-        <Menu isShowing={this.state.menuIsShowing} onClick={(i) => this.handleMenuClick(i)} />
+        <NavTop onClick={(x) => this.handleMenuClick(x)} gameType={this.state.currentGameType} />
         <Game currentGameType={this.state.currentGameType} />
       </div>
     );
