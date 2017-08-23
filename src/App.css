@@ -62,6 +62,33 @@
   cursor: pointer;
 }
 
-#difficulties{
+.highlighted{
+  background-color: grey;
+}
 
+.regular{
+  background-color: white;
+}
+
+.letter{
+  border: 2px solid black;
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  font-size: 25px;
+  display: inline-block;
+  cursor: move;
+}
+
+#difficulties{
+  
+}
+
+#phrase-box{
+  width: 50%;
+  height: 170px;
+  margin: 0 auto;
+  border: 5px solid black;
+  padding: 5px;
+  position: relative;
 }
