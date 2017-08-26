@@ -133,3 +133,7 @@
 .answer-input{
   margin: 0 auto;
 }
+
+.no-show{
+  display: none;
+}

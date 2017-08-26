@@ -23,6 +23,9 @@ class Answer extends Component{
   }
 
   render(){
+    if(this.props.gameType==="home"){
+      return null;
+    }
     return (
       <Container className="answer-container">
         <Form onSubmit={(e)=>this.handleSubmit(e)}>

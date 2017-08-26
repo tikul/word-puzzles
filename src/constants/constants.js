@@ -8,8 +8,8 @@ module.exports = {
   GameModeDescriptions : {
     "home": 
       {
-        title : "Word Jam",
-        desc : "Placeholder description"
+        title : "Word Puzzles",
+        desc : "A collection of word-related puzzles to keep you busy."
       },
     "anagram":
       {
@@ -18,8 +18,8 @@ module.exports = {
       },
     "cipher": 
       {
-        title : "Cipher Game",
-        desc : "Placeholder description"
+        title : "Solving Ciphers",
+        desc : "Each letter in the sentence is mapped to a (potentially) different letter. Crack the cipher to uncover the original sentence."
       }
   },
   TileColors : ["tile-red", "tile-blue-green", "tile-blue", "tile-purple", "tile-pink", "tile-orange", "tile-green"],

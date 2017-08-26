@@ -6,6 +6,7 @@ import Draggable from 'react-draggable';
 import Permutation from '../libs/shuffle';
 import Answer from './Answer';
 import {Button, Header} from 'semantic-ui-react';
+import Status from './AnswerStatus';
 
 const AnagramDifficulties = Constants.AnagramDifficulties;
 const GameModeDescriptions = Constants.GameModeDescriptions;
@@ -15,7 +16,7 @@ class Game extends Component{
   constructor(){
     super();
     this.state = {
-      answerIsCorrect: null,
+      answerCode: null,
       phrase: null,
       difficulty: null,
       inGame: false,
@@ -31,7 +32,7 @@ class Game extends Component{
         isHighlighted={value.group===this.state.difficulty}
         onClick={()=>this.changeDifficulty(value.group)} />
       );
-      diffList.push(<Button color="blue" onClick={()=>this.changePhrase()}>New Word?</Button>);
+      diffList.push(<Button color="blue" onClick={()=>this.changePhrase(3)}>New Word?</Button>);
       return diffList;
     }
   }
@@ -40,7 +41,7 @@ class Game extends Component{
     if(i !== this.state.difficulty){
       this.setState({
         difficulty: i,
-      }, ()=>{this.changePhrase()});
+      }, ()=>{this.changePhrase(3)});
     }
   }
 
@@ -60,7 +61,7 @@ class Game extends Component{
     }
   }
 
-  changePhrase(){
+  changePhrase(i){
     if(this.props.currentGameType==="anagram"){
       if(this.state.difficulty !== null){
         let wordIndex = Math.floor(Math.random() * Words[this.state.difficulty].length);
@@ -69,9 +70,12 @@ class Game extends Component{
         //
         console.log(Words[this.state.difficulty][wordIndex]);
         //
-        this.setState({
-          phrase: newPhrase,
-          cipheredPhrase: cipheredPhrase,
+        this.setState({answerCode: i}, ()=>{
+            setTimeout(()=>this.setState({
+              phrase: newPhrase,
+              cipheredPhrase: cipheredPhrase,
+              answerCode: null,
+            }), 2000);
         });
       }
     }
@@ -81,21 +85,19 @@ class Game extends Component{
     if(this.state.phrase !== null){
       if(s === this.state.phrase){
         console.log("Correct!");
+        this.changePhrase(1);
       }else{
         console.log("Not quite the word I was looking for...");
+        this.setState({answerCode: 2}, ()=>{
+            setTimeout(()=>this.setState({answerCode: null}), 2000);
+        });
       }
     }
   }
 
   render(){
-    let title, desc;
-    if(this.props.currentGameType===null){
-      title = "Not found";
-      desc = "Not found";
-    }else{
-      title = GameModeDescriptions[this.props.currentGameType].title;
-      desc = GameModeDescriptions[this.props.currentGameType].desc;
-    }
+    const title = GameModeDescriptions[this.props.currentGameType].title;
+    const desc = GameModeDescriptions[this.props.currentGameType].desc;
     
     return (
       <div id="main-game">
@@ -104,10 +106,11 @@ class Game extends Component{
         <div id="difficulties">
           {this.promptDifficulty()}
         </div>
-        <div id="phrase-box">
+        <div id="phrase-box" className={this.props.currentGameType==="home"?"no-show":""}>
           {this.renderPhrase()}
         </div>
-        <Answer onSubmit={(e)=>this.handleSubmit(e)} />
+        <Answer gameType={this.props.currentGameType} onSubmit={(e)=>this.handleSubmit(e)} />
+        <Status status={this.state.answerCode} word={this.state.phrase} />
       </div>
     );
   }
